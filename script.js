@@ -76,8 +76,10 @@ function shuffleWords(words) {
 
 function buildQuestion(sentence, questionNumber) {
   const words = tokenize(sentence);
-  const scrambledWords = shuffleWords(words);
-  const blanks = words.map(() => "_____");
+  const clueIndex = words.length > 1 ? 1 : 0;
+  const wordsToScramble = words.filter((_, index) => index !== clueIndex);
+  const scrambledWords = shuffleWords(wordsToScramble);
+  const blanks = words.map((word, index) => (index === clueIndex ? word : "_____"));
 
   return {
     questionNumber,
