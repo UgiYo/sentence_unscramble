@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>英文句子拆解打亂工具</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Sentence Unscramble</p>
+        <h1 id="page-title">英文句子拆解打亂工具</h1>
+        <p class="intro">
+          先輸入題數，再逐題貼上英文句子。系統會將全部單字打亂，題目行只顯示空格，方便列印成練習題。
+        </p>
+      </section>
+
+      <section class="card controls" aria-labelledby="setup-title">
+        <div>
+          <h2 id="setup-title">建立題目</h2>
+          <p>請輸入要製作的題數，接著填入每一道英文句子。</p>
+        </div>
+        <form id="setup-form" class="setup-form">
+          <label for="question-count">題數</label>
+          <div class="count-row">
+            <input
+              id="question-count"
+              name="question-count"
+              type="number"
+              min="1"
+              max="100"
+              value="10"
+              required
+            />
+            <button type="submit">產生輸入欄位</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card sentence-card" aria-labelledby="sentence-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="sentence-title">輸入英文句子</h2>
+            <p id="sentence-help">每格輸入完整句子，例如：The weather is nice today.</p>
+          </div>
+          <button id="sample-button" type="button" class="ghost-button">套用範例</button>
+        </div>
+        <form id="sentences-form">
+          <div id="sentence-fields" class="sentence-fields" aria-live="polite"></div>
+          <div class="action-row">
+            <button type="submit" class="primary-button">產生打亂題目</button>
+            <button type="button" id="clear-button" class="secondary-button">清除內容</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card output-card" aria-labelledby="output-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="output-title">輸出結果</h2>
+            <p>每題包含打亂單字與填空題目，可直接複製或列印。</p>
+          </div>
+          <div class="output-actions">
+            <button id="worksheet-button" type="button" class="primary-button" disabled>產生學生作答頁</button>
+            <button id="copy-button" type="button" class="ghost-button" disabled>複製結果</button>
+          </div>
+        </div>
+        <div id="output" class="output empty-state">
+          請先輸入句子並按下「產生打亂題目」。
+        </div>
+      </section>
+
+      <section id="worksheet-section" class="worksheet-page" aria-labelledby="worksheet-title" hidden>
+        <div class="worksheet-toolbar">
+          <div>
+            <p class="eyebrow">Student Worksheet</p>
+            <h2 id="worksheet-title">學生作答頁</h2>
+            <p>只顯示打亂後的單字與填空題目，不顯示原始句子。</p>
+          </div>
+          <button id="print-worksheet-button" type="button" class="secondary-button">列印作答頁</button>
+        </div>
+
+        <div class="worksheet-paper">
+          <header class="worksheet-header">
+            <h2>英文句子重組練習</h2>
+            <div class="student-info">
+              <span>姓名：________________</span>
+              <span>日期：________________</span>
+            </div>
+          </header>
+          <ol id="worksheet-list" class="worksheet-list"></ol>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

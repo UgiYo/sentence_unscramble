@@ -1,0 +1,13 @@
+{
+  "name": "sentence-unscramble",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A static Traditional Chinese web app for creating English sentence unscramble worksheets.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check script.js && node --check server.js && node tests/question-format.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
