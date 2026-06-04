@@ -60,43 +60,31 @@ function tokenize(sentence) {
 }
 
 function shuffleWords(words) {
-  if (words.length <= 1) {
-    return [...words];
+  const shuffled = [...words];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
   }
 
-  const centerIndex = Math.floor(words.length / 2);
-  const orderedIndexes = [centerIndex];
-  let highIndex = words.length - 1;
-  let lowIndex = 0;
-
-  while (orderedIndexes.length < words.length) {
-    if (highIndex !== centerIndex) {
-      orderedIndexes.push(highIndex);
-    }
-    highIndex -= 1;
-
-    if (orderedIndexes.length >= words.length) {
-      break;
-    }
-
-    if (lowIndex !== centerIndex) {
-      orderedIndexes.push(lowIndex);
-    }
-    lowIndex += 1;
+  if (words.length > 1 && shuffled.join(" ") === words.join(" ")) {
+    [shuffled[0], shuffled[1]] = [shuffled[1], shuffled[0]];
   }
 
-  return orderedIndexes.map((index) => words[index]);
+  return shuffled;
 }
 
 function buildQuestion(sentence, questionNumber) {
   const words = tokenize(sentence);
-  const scrambledWords = shuffleWords(words);
-  const blanks = words.map(() => "_____");
+  const clueIndex = words.length > 1 ? 1 : 0;
+  const wordsToScramble = words.filter((_, index) => index !== clueIndex);
+  const scrambledWords = shuffleWords(wordsToScramble);
+  const blanks = words.map((word, index) => (index === clueIndex ? word : "_____"));
 
   return {
     questionNumber,
     scrambled: scrambledWords.join(" / "),
-    blankQuestion: blanks.join(" "),
+    blankQuestion: blanks.join("  "),
   };
 }
 
