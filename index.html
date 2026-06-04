@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>英文句子拆解打亂工具</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Sentence Unscramble Generator</p>
+        <h1 id="page-title">英文句子拆解打亂工具</h1>
+        <p class="intro">
+          先輸入題數，再逐題填入英文句子；系統會把每一句拆成單字、打亂排序，並產生含提示字的填空題目。
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="setup-title">
+        <div class="panel-heading">
+          <h2 id="setup-title">1. 設定題數</h2>
+          <p>例如輸入 10，按下「建立輸入欄位」後就能輸入 10 句英文。</p>
+        </div>
+
+        <form id="setup-form" class="setup-form">
+          <label for="question-count">題數</label>
+          <div class="input-row">
+            <input
+              id="question-count"
+              name="question-count"
+              type="number"
+              min="1"
+              max="50"
+              value="10"
+              required
+            />
+            <button type="submit">建立輸入欄位</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="sentences-title">
+        <div class="panel-heading">
+          <h2 id="sentences-title">2. 輸入英文句子</h2>
+          <p>每一題輸入一句完整英文句子，標點符號會保留在原本的單字上。</p>
+        </div>
+
+        <form id="sentence-form">
+          <div id="sentence-fields" class="sentence-fields" aria-live="polite"></div>
+          <div class="actions">
+            <button type="submit" class="primary">產生打亂題目</button>
+            <button type="button" id="clear-results" class="secondary">清除結果</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel results-panel" aria-labelledby="results-title">
+        <div class="panel-heading">
+          <h2 id="results-title">3. 輸出結果</h2>
+          <p>可直接複製打亂單字與填空題目，提供學生重新排列句子。</p>
+        </div>
+        <div id="results" class="results empty-state">
+          尚未產生結果。請先輸入句子並按下「產生打亂題目」。
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
