@@ -2,38 +2,16 @@
 
 這是一個純前端網頁工具，可輸入題數與英文句子，並輸出打亂排序的單字與填空題目。
 
-## 線上使用（建議）
-
-這個專案是純靜態網頁，最適合放在 GitHub Pages。合併此版本後，GitHub 會用 `.github/workflows/pages.yml` 自動部署網站。
-
-設定方式：
-
-1. 到 GitHub repository 的 **Settings** → **Pages**。
-2. 在 **Build and deployment** 的 **Source** 選擇 **GitHub Actions**。
-3. 將此分支合併到 `main` 或 `master`，或到 **Actions** 手動執行 **Deploy static site to GitHub Pages**。
-4. 部署完成後，GitHub Pages 會提供一個公開網址，例如 `https://你的帳號.github.io/你的專案名稱/`，其他人只要開這個網址就能使用，不需要下載檔案、不需要輸入指令。
-
 ## 使用方式
 
-### 一般使用者：直接用滑鼠點擊
+1. 安裝 Node.js 18 或更新版本。
+2. 在專案根目錄啟動網站：
 
-不需要輸入任何指令，也不需要安裝 Node.js。
+   ```bash
+   npm start
+   ```
 
-1. 下載或打開此資料夾。
-2. 用滑鼠雙擊 `點我開啟.html`。
-3. 瀏覽器開啟後即可開始輸入題數、英文句子並產生學生作答頁。
-
-> 如果電腦沒有顯示副檔名，也可以雙擊 `index.html` 直接使用。
-
-### 開發者：使用本機伺服器
-
-如果需要用本機伺服器測試，再安裝 Node.js 18 或更新版本，並執行：
-
-```bash
-npm start
-```
-
-開啟終端機顯示的網址，預設為 <http://127.0.0.1:4173/>。
+3. 開啟終端機顯示的網址，預設為 <http://127.0.0.1:4173/>。
 
 ## 功能
 
